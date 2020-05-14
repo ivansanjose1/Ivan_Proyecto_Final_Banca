@@ -24,87 +24,90 @@ public class Proyecto_final_Banca_Entornos_Ivan {
         Cuentas.add(new Datos_Cliente("Juan", "Perez", "Plaza", 1, 689854821, 18, 2, 10));
         int Cantidad;
         int NumCuenta;
-        System.out.println("¿Las operaciones que vas a realizar son Fisicas o Digitales?");
+        int Operaciones;
 
-        int Operaciones = EleccionOperaciones();
-        switch (Operaciones) {
-            case 1:
-                int opcion = Menu();
+        do {
+            System.out.println("¿Las operaciones que vas a realizar son Fisicas o Digitales?");
 
-                switch (opcion) {
+            Operaciones = EleccionOperaciones();
+            switch (Operaciones) {
+                case 1:
+                    int opcion = Menu();
 
-                    case 0:
-                        System.out.println("Cerrando");
-                        break;
+                    switch (opcion) {
 
-                    case 1:
-                        MostrarCuentas();
-                        System.out.println("Elige el numero de la cuenta que vayas a usar");
-                        NumCuenta = sc.nextInt();
-                        sc.nextLine();
-                        System.out.println("Que cantidad vas a ingresar");
-                        Cantidad = sc.nextInt();
-                        sc.nextLine();
+                        case 0:
+                            System.out.println("Cerrando");
+                            break;
 
-                        Cuentas.get(NumCuenta).ingresar(Cantidad);
-                        break;
+                        case 1:
+                            MostrarCuentas();
+                            System.out.println("Elige el numero de la cuenta que vayas a usar");
+                            NumCuenta = sc.nextInt();
+                            sc.nextLine();
+                            System.out.println("Que cantidad vas a ingresar");
+                            Cantidad = sc.nextInt();
+                            sc.nextLine();
 
-                    case 2:
-                        MostrarCuentas();
-                        System.out.println("Elige el numero de la cuenta que vayas a usar");
-                        NumCuenta = sc.nextInt();
-                        sc.nextLine();
-                        System.out.println("Que cantidad vas a retirar");
-                        Cantidad = sc.nextInt();
-                        sc.nextLine();
-                        Cuentas.get(NumCuenta).retirar(Cantidad);
-                        break;
+                            Cuentas.get(NumCuenta).ingresar(Cantidad);
+                            break;
 
-                    case 3:
-                        System.out.println("Siga los pasos");
-                        CrearPerfil();
-                        break;
-                    case 4:
-                        ModificarlaCuenta();
-                        break;
-                    case 5:
-                        InformacionCuenta();
-                        break;
+                        case 2:
+                            MostrarCuentas();
+                            System.out.println("Elige el numero de la cuenta que vayas a usar");
+                            NumCuenta = sc.nextInt();
+                            sc.nextLine();
+                            System.out.println("Que cantidad vas a retirar");
+                            Cantidad = sc.nextInt();
+                            sc.nextLine();
+                            Cuentas.get(NumCuenta).retirar(Cantidad);
+                            break;
 
-                    default:
-                        System.out.println("No esta disponible actualmente esa opcion");
-                        break;
+                        case 3:
+                            System.out.println("Siga los pasos");
+                            CrearPerfil();
+                            break;
+                        case 4:
+                            ModificarlaCuenta();
+                            break;
+                        case 5:
+                            InformacionCuenta();
+                            break;
 
-                }
-                break;
-            case 2:
-                int Opcion = MenuInternet();
-                switch (Opcion) {
-                    case 0:
-                        System.out.println("Saliendo");
-                        break;
-                    case 1:
-                        MostrarCuentas();
-                        System.out.println("Elige el numero de la cuenta que vayas a usar");
-                        NumCuenta = sc.nextInt();
-                        sc.nextLine();
-                        System.out.println("Escribe la cantidad del pago");
-                        Cantidad = sc.nextInt();
-                        sc.nextLine();
-                        Cuentas.get(NumCuenta).retirar(Cantidad);
-                        break;
+                        default:
+                            System.out.println("No esta disponible actualmente esa opcion");
+                            break;
 
-                    case 2:
+                    }
+                    break;
+                case 2:
+                    int Opcion = MenuInternet();
+                    switch (Opcion) {
+                        case 0:
+                            System.out.println("Saliendo");
+                            break;
+                        case 1:
+                            MostrarCuentas();
+                            System.out.println("Elige el numero de la cuenta que vayas a usar");
+                            NumCuenta = sc.nextInt();
+                            sc.nextLine();
+                            System.out.println("Escribe la cantidad del pago");
+                            Cantidad = sc.nextInt();
+                            sc.nextLine();
+                            Cuentas.get(NumCuenta).retirar(Cantidad);
+                            break;
 
-                        break;
+                        case 2:
+                            InformacionCuenta();
+                            break;
 
-                    default:
-                        System.out.println("No esta disponible actualmente esa opcion");
-                        break;
-                }
-                break;
-        }
-
+                        default:
+                            System.out.println("No esta disponible actualmente esa opcion");
+                            break;
+                    }
+                    break;
+            }
+        } while (Operaciones != 0);
     }
 
     public static int EleccionOperaciones() {
@@ -121,6 +124,7 @@ public class Proyecto_final_Banca_Entornos_Ivan {
         System.out.println("Elige una opcion");
         opcion = sc.nextInt();
         sc.nextLine();
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n");
         return opcion;
     }
 
