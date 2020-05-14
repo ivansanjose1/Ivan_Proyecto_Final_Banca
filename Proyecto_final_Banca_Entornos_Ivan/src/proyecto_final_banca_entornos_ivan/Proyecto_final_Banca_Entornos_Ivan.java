@@ -23,7 +23,7 @@ public class Proyecto_final_Banca_Entornos_Ivan {
         int NumCuenta;
         int opcion = menu();
 
-        //
+        //Cuentas de pruebas
         Cuentas.add(new Datos_Cliente("Juan", "Perez", "Casa", 1, 689751300, 18, 2, 0));
         Cuentas.add(new Datos_Cliente("Juan", "Perez", "Plaza", 1, 689854821, 18, 2, 10));
         switch (opcion) {
@@ -63,7 +63,7 @@ public class Proyecto_final_Banca_Entornos_Ivan {
                 ModificarlaCuenta();
                 break;
             case 5:
-                
+                InformacionCuenta();
                 break;
                 
 
