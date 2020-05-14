@@ -123,6 +123,29 @@ public class Proyecto_final_Banca_Entornos_Ivan {
         sc.nextLine();
         return Opcion;
     }
+    
+     public static int MenuModificar() {
+        int opcion;
+        System.out.println("*********************************");
+        System.out.println("*       Menu Modificar          *");
+        System.out.println("*********************************");
+        System.out.println("*   1-Nombre                    *");
+        System.out.println("*********************************");
+        System.out.println("*   2-Apellido                  *");
+        System.out.println("*********************************");
+        System.out.println("*   3-Dirección                 *");
+        System.out.println("*********************************");
+        System.out.println("*   4-NIF                       *");
+        System.out.println("*********************************");
+        System.out.println("*   5-Telefono                  *");
+        System.out.println("*********************************");
+        System.out.println("*   6-Edad                      *");
+        System.out.println("*********************************");
+        System.out.println("Elige una opcion");
+        opcion = sc.nextInt();
+        sc.nextLine();
+        return opcion;
+    }
 
     public static void CrearPerfil() {
         System.out.println("Cual es su nombre");
@@ -224,28 +247,7 @@ public class Proyecto_final_Banca_Entornos_Ivan {
 
     }
 
-    public static int MenuModificar() {
-        int opcion;
-        System.out.println("*********************************");
-        System.out.println("*       Menu Modificar          *");
-        System.out.println("*********************************");
-        System.out.println("*   1-Nombre                    *");
-        System.out.println("*********************************");
-        System.out.println("*   2-Apellido                  *");
-        System.out.println("*********************************");
-        System.out.println("*   3-Dirección                 *");
-        System.out.println("*********************************");
-        System.out.println("*   4-NIF                       *");
-        System.out.println("*********************************");
-        System.out.println("*   5-Telefono                  *");
-        System.out.println("*********************************");
-        System.out.println("*   6-Edad                      *");
-        System.out.println("*********************************");
-        System.out.println("Elige una opcion");
-        opcion = sc.nextInt();
-        sc.nextLine();
-        return opcion;
-    }
+   
 
     public static void InformacionCuenta() {
         int NumCuenta;
