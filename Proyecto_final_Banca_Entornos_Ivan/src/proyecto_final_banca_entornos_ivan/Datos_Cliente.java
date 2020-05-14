@@ -75,13 +75,15 @@ public class Datos_Cliente {
                   System.out.println("Correcto");
                    this.saldo -= cantidad;  
                 }else{
-                    System.out.println("No puedes hacer pagos de esa cantidad");
+                    System.out.println("No puedes hacer pagos/retirar de esa cantidad");
                 }
             }
         } else {
             System.out.println("No eres tu");
         }
     }
+    
+   
 
     
 
