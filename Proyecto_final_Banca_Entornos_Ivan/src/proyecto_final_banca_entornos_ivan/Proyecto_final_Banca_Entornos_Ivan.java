@@ -179,12 +179,10 @@ public class Proyecto_final_Banca_Entornos_Ivan {
         System.out.println("*   2-Apellido                  *");
         System.out.println("*********************************");
         System.out.println("*   3-Dirección                 *");
+        System.out.println("*********************************");;
+        System.out.println("*   4-Telefono                  *");
         System.out.println("*********************************");
-        System.out.println("*   4-NIF                       *");
-        System.out.println("*********************************");
-        System.out.println("*   5-Telefono                  *");
-        System.out.println("*********************************");
-        System.out.println("*   6-Edad                      *");
+        System.out.println("*   5-Edad                      *");
         System.out.println("*********************************");
         System.out.println("Elige una opcion");
         opcion = sc.nextInt();
@@ -272,20 +270,13 @@ public class Proyecto_final_Banca_Entornos_Ivan {
                     break;
 
                 case 4:
-                    System.out.println("Escribe tu nuevo NIF");
-                    NIF = sc.nextInt();
-                    sc.nextLine();
-                    Cuentas.get(NumCuenta).setNif(NIF);
-                    break;
-
-                case 5:
                     System.out.println("Escribe tu nuevo numero de Telefono");
                     Telefono = sc.nextInt();
                     sc.nextLine();
                     Cuentas.get(NumCuenta).setTelefono(Telefono);
                     break;
 
-                case 6:
+                case 5:
                     System.out.println("Escribe tu Edad Actual");
                     Edad = sc.nextInt();
                     sc.nextLine();
