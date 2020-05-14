@@ -68,6 +68,7 @@ public class Proyecto_final_Banca_Entornos_Ivan {
                             CrearPerfil();
                             break;
                         case 4:
+                            //Id del Gestor del Banco es 101
                             ModificarlaCuenta();
                             break;
                         case 5:
@@ -221,6 +222,7 @@ public class Proyecto_final_Banca_Entornos_Ivan {
     }
 
     public static void ModificarlaCuenta() {
+        int Id;
         int Comprobacion;
         int NumCuenta;
         int Decision;
@@ -230,6 +232,12 @@ public class Proyecto_final_Banca_Entornos_Ivan {
         int NIF;
         int Telefono;
         int Edad;
+        System.out.println("¿Eres un Gestor del Banco pon tu id?");
+        Id=sc.nextInt();
+        sc.nextLine();
+        if (Id==101) {
+            
+        
         MostrarCuentas();
         System.out.println("Elige el numero de la cuenta que quieres modificar");
         NumCuenta = sc.nextInt();
@@ -288,7 +296,9 @@ public class Proyecto_final_Banca_Entornos_Ivan {
         } else {
             System.out.println("No eres tu");
         }
-
+        }else{
+            System.out.println("No eres un Gestor del Banco lo que has intentado es ilegal");
+        }
     }
 
     public static void InformacionCuenta() {
