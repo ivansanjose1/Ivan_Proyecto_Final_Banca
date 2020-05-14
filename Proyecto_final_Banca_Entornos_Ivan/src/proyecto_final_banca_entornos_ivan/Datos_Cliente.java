@@ -14,14 +14,10 @@ import java.util.Scanner;
 public class Datos_Cliente {
 
     static Scanner sc = new Scanner(System.in);
-    /*Se desea construir una aplicación de banca en la que se gestionan las cuentas de los clientes. 
-    El banco desea almacenar alguna información de los clientes como su nombre, apellidos, dirección, nif, teléfono y edad. 
-    Un cliente puede tener varias cuentas en el sistema y debe poder realizar las operaciones de ingresar y retirar saldo de cada una de las cuentas. 
-    Además, los clientes pueden tener tarjetas de crédito asociadas a las cuentas, con límite de retirada de saldo en cajero y límite para los pagos por Internet. 
-    Cuando se retira saldo (en efectivo o se realiza un pago) se debe comprobar antes, que el saldo sea mayor que 0 al finalizar la operación en la cuenta asociada. 
-    La cuenta bancaria dispone de un determinado saldo, un límite, además de una fecha de apertura. 
-    Los gestores del banco pueden acceder a las cuentas de los usuarios para crear perfiles y para modificar los datos de los clientes cuando llamen por teléfono. 
-    En el perfil del usuario se debe poder ver el saldo medio de la cuenta durante los últimos doce meses, así como la cantidad de pagos totales realizados con las tarjetas de los clientes.*/
+    int CantidadIngresos;
+    int CantidadPagosRetiradas;
+    int ContadorIngresos = 0;
+    int ContadorPagosRetiradas = 0;
     String nombre;
     String apellido;
     String direccion;
@@ -52,7 +48,9 @@ public class Datos_Cliente {
                 System.out.println("No puedes realizar esta funcion");
             } else {
                 System.out.println("Se ha ingresado la siguiente cantidad " + cantidad);
+                CantidadIngresos+=cantidad;
                 this.saldo += cantidad;
+                ContadorIngresos++;
             }
         } else {
             System.out.println("No eres tu");
@@ -71,10 +69,12 @@ public class Datos_Cliente {
                 System.out.println("Error no puedes le delvolvemos a la cuenta la cantidad que has intentado sacar");
                 this.saldo += cantidad;
             } else {
-                if (cantidad<=500) {
-                  System.out.println("Correcto");
-                   this.saldo -= cantidad;  
-                }else{
+                if (cantidad <= 500) {
+                    System.out.println("Correcto");
+                    CantidadPagosRetiradas+=cantidad;
+                    this.saldo -= cantidad;
+                    ContadorPagosRetiradas++;
+                } else {
                     System.out.println("No puedes hacer pagos/retirar de esa cantidad");
                 }
             }
@@ -82,10 +82,6 @@ public class Datos_Cliente {
             System.out.println("No eres tu");
         }
     }
-    
-   
-
-    
 
     public String getNombre() {
         return nombre;
@@ -150,6 +146,39 @@ public class Datos_Cliente {
     public void setSaldo(int saldo) {
         this.saldo = saldo;
     }
+
+    public int getCantidadIngresos() {
+        return CantidadIngresos;
+    }
+
+    public void setCantidadIngresos(int CantidadIngresos) {
+        this.CantidadIngresos = CantidadIngresos;
+    }
+
+    public int getCantidadPagosRetiradas() {
+        return CantidadPagosRetiradas;
+    }
+
+    public void setCantidadPagosRetiradas(int CantidadPagosRetiradas) {
+        this.CantidadPagosRetiradas = CantidadPagosRetiradas;
+    }
+
+    public int getContadorIngresos() {
+        return ContadorIngresos;
+    }
+
+    public void setContadorIngresos(int ContadorIngresos) {
+        this.ContadorIngresos = ContadorIngresos;
+    }
+
+    public int getContadorPagosRetiradas() {
+        return ContadorPagosRetiradas;
+    }
+
+    public void setContadorPagosRetiradas(int ContadorPagosRetiradas) {
+        this.ContadorPagosRetiradas = ContadorPagosRetiradas;
+    }
+    
 
     @Override
     public String toString() {

@@ -16,10 +16,7 @@ public class Proyecto_final_Banca_Entornos_Ivan {
 
     static Scanner sc = new Scanner(System.in);
     static ArrayList<Datos_Cliente> Cuentas = new ArrayList<Datos_Cliente>();
-    static int CantidadIngresos;
-    static int CantidadPagosRetiradas;
-    static int ContadorIngresos=0;
-    static int ContadorPagosRetiradas=0;
+
     public static void main(String[] args) {
 
         //Cuentas de pruebas
@@ -28,6 +25,8 @@ public class Proyecto_final_Banca_Entornos_Ivan {
 
         int NumCuenta;
         int Operaciones;
+        int CantidadIngresos;
+        int CantidadPagosRetiradas;
 
         do {
             System.out.println("¿Las operaciones que vas a realizar son Fisicas o Digitales?");
@@ -51,7 +50,7 @@ public class Proyecto_final_Banca_Entornos_Ivan {
                             System.out.println("Que cantidad vas a ingresar");
                             CantidadIngresos = sc.nextInt();
                             sc.nextLine();
-                            ContadorIngresos++;
+
                             Cuentas.get(NumCuenta).ingresar(CantidadIngresos);
                             break;
 
@@ -64,7 +63,7 @@ public class Proyecto_final_Banca_Entornos_Ivan {
                             CantidadPagosRetiradas = sc.nextInt();
                             sc.nextLine();
                             Cuentas.get(NumCuenta).retirar(CantidadPagosRetiradas);
-                            ContadorPagosRetiradas++;
+
                             break;
 
                         case 3:
@@ -100,7 +99,7 @@ public class Proyecto_final_Banca_Entornos_Ivan {
                             CantidadPagosRetiradas = sc.nextInt();
                             sc.nextLine();
                             Cuentas.get(NumCuenta).retirar(CantidadPagosRetiradas);
-                            ContadorPagosRetiradas++;
+
                             break;
 
                         case 2:
@@ -308,28 +307,19 @@ public class Proyecto_final_Banca_Entornos_Ivan {
         sc.nextLine();
         if (NIF == Cuentas.get(NumCuenta).getNif()) {
             System.out.println(Cuentas.get(NumCuenta).toString());
+                SaldoMedio(NumCuenta);
+
         } else {
             System.out.println("No eres tu realmente");
         }
     }
 
-    public void SaldoMedio() {
-        int NumCuenta;
-        int NIF;
-        MostrarCuentas();
-        System.out.println("Elige el numero de tu cuenta");
-        NumCuenta = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Escribe tu NIF para ver si eres tu");
-        NIF = sc.nextInt();
-        sc.nextLine();
-        if (NIF == Cuentas.get(NumCuenta).getNif()) {
-           //CantidadIngresos=1+1; ContadorIngresos ContadorPagosRetiradas
-           int TotalRetiradas=CantidadPagosRetiradas;
+    public static void SaldoMedio(int NumCuenta) {
 
-        } else {
-            System.out.println("No eres tu realmente");
-        }
+        int TotalPagosRetiradas = (Cuentas.get(NumCuenta).ContadorPagosRetiradas * Cuentas.get(NumCuenta).CantidadPagosRetiradas) / 12;
+        int TotalIngresos = (Cuentas.get(NumCuenta).ContadorIngresos * Cuentas.get(NumCuenta).CantidadIngresos) / 12;
+        System.out.println("La media de Pagos y de Retiradas es de: " + TotalPagosRetiradas + " y la media de Ingresos es de: " + TotalIngresos);
+
     }
 
 }
