@@ -24,7 +24,8 @@ public class Proyecto_final_Banca_Entornos_Ivan {
         int opcion = menu();
 
         //
-        Cuentas.add(new Datos_Cliente("Juan", "Perez", "Casa", 1, 689751300, 18, 1, 0));
+        Cuentas.add(new Datos_Cliente("Juan", "Perez", "Casa", 1, 689751300, 18, 2, 0));
+        Cuentas.add(new Datos_Cliente("Juan", "Perez", "Plaza", 1, 689854821, 18, 2, 10));
         switch (opcion) {
 
             case 0:
@@ -59,8 +60,12 @@ public class Proyecto_final_Banca_Entornos_Ivan {
                 CrearPerfil();
                 break;
             case 4:
-
+                ModificarlaCuenta();
                 break;
+            case 5:
+                
+                break;
+                
 
             default:
                 System.out.println("No esta disponible actualmente esa opcion");
@@ -81,6 +86,10 @@ public class Proyecto_final_Banca_Entornos_Ivan {
         System.out.println("*********************************");
         System.out.println("*   3-Crear una cuenta          *");
         System.out.println("*********************************");
+        System.out.println("*   4-Modificar la cuenta       *");
+        System.out.println("*********************************");
+        System.out.println("*   5-Información de tu cuenta  *");
+        System.out.println("*********************************");
         System.out.println("*   0-Salir                     *");
         System.out.println("*********************************");
         System.out.println("Elige una opcion");
@@ -88,28 +97,6 @@ public class Proyecto_final_Banca_Entornos_Ivan {
         return opcion;
     }
 
-    public static void CrearCuenta() {
-        System.out.println("Cual es su nombre");
-        String nombre = sc.nextLine();
-        System.out.println("Cual es su apellido");
-        String apellido = sc.nextLine();
-        System.out.println("Cual es su direccion");
-        String direccion = sc.nextLine();
-        System.out.println("Cual es su nif");
-        int nif = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Cual es su telefono");
-        int telefono = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Cual es su edad");
-        int edad = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Cantidad de cuentas que tengas");
-        int cantidad_cuentas = sc.nextInt();
-        sc.nextLine();
-
-        Cuentas.add(new Datos_Cliente(nombre, apellido, direccion, nif, telefono, edad, cantidad_cuentas, 0));
-    }
 
     public static void CrearPerfil() {
         System.out.println("Cual es su nombre");
@@ -136,7 +123,7 @@ public class Proyecto_final_Banca_Entornos_Ivan {
 
     public static void MostrarCuentas() {
         for (int i = 0; i < Cuentas.size(); i++) {
-            System.out.println(i + " = " + Cuentas.get(i).toString());
+            System.out.println(i + " = " + Cuentas.get(i).getNombre()+Cuentas.get(i).getApellido());
         }
     }
 
@@ -223,6 +210,23 @@ public class Proyecto_final_Banca_Entornos_Ivan {
         opcion = sc.nextInt();
         sc.nextLine();
         return opcion;
+    }
+    
+    public static void InformacionCuenta(){
+        int NumCuenta;
+        int NIF;
+        MostrarCuentas();
+        System.out.println("Elige el numero de tu cuenta");
+        NumCuenta=sc.nextInt();
+        sc.nextLine();
+        System.out.println("Escribe tu NIF para ver si eres tu");
+        NIF=sc.nextInt();
+        sc.nextLine();
+        if (NIF==Cuentas.get(NumCuenta).getNif()) {
+            System.out.println(Cuentas.get(NumCuenta).toString());
+        }else{
+            System.out.println("No eres tu realmente");
+        }
     }
 
 }
