@@ -65,7 +65,6 @@ public class Proyecto_final_Banca_Entornos_Ivan {
             case 5:
                 InformacionCuenta();
                 break;
-                
 
             default:
                 System.out.println("No esta disponible actualmente esa opcion");
@@ -97,7 +96,6 @@ public class Proyecto_final_Banca_Entornos_Ivan {
         return opcion;
     }
 
-
     public static void CrearPerfil() {
         System.out.println("Cual es su nombre");
         String nombre = sc.nextLine();
@@ -123,11 +121,12 @@ public class Proyecto_final_Banca_Entornos_Ivan {
 
     public static void MostrarCuentas() {
         for (int i = 0; i < Cuentas.size(); i++) {
-            System.out.println(i + " = " + Cuentas.get(i).getNombre()+Cuentas.get(i).getApellido());
+            System.out.println(i + " = " + Cuentas.get(i).getNombre() + Cuentas.get(i).getApellido());
         }
     }
 
     public static void ModificarlaCuenta() {
+        int Comprobacion;
         int NumCuenta;
         int Decision;
         String Nombre;
@@ -140,53 +139,61 @@ public class Proyecto_final_Banca_Entornos_Ivan {
         System.out.println("Elige el numero de la cuenta que quieres modificar");
         NumCuenta = sc.nextInt();
         sc.nextLine();
-        System.out.println("¿Que quieres modificar algo de tu cuenta?");
-        Decision = sc.nextInt();
+        System.out.println("Escribe tu NIF para ver si eres tu");
+        Comprobacion = sc.nextInt();
         sc.nextLine();
-        int opcion = MenuModificar();
+        if (Comprobacion == Cuentas.get(NumCuenta).getNif()) {
 
-        switch (opcion) {
-            case 1:
-                System.out.println("Escribe tu nuevo Nombre");
-                Nombre = sc.nextLine();
-                Cuentas.get(NumCuenta).setNombre(Nombre);
-                break;
+            System.out.println("¿Que quieres modificar algo de tu cuenta?");
+            Decision = sc.nextInt();
+            sc.nextLine();
+            int opcion = MenuModificar();
 
-            case 2:
-                System.out.println("Escribe tu nuevo Apellido");
-                Apellido = sc.nextLine();
-                Cuentas.get(NumCuenta).setApellido(Apellido);
-                break;
+            switch (opcion) {
+                case 1:
+                    System.out.println("Escribe tu nuevo Nombre");
+                    Nombre = sc.nextLine();
+                    Cuentas.get(NumCuenta).setNombre(Nombre);
+                    break;
 
-            case 3:
-                System.out.println("Escribe tu nueva direccion Direccion");
-                Direccion = sc.nextLine();
-                Cuentas.get(NumCuenta).setDireccion(Direccion);
-                break;
+                case 2:
+                    System.out.println("Escribe tu nuevo Apellido");
+                    Apellido = sc.nextLine();
+                    Cuentas.get(NumCuenta).setApellido(Apellido);
+                    break;
 
-            case 4:
-                System.out.println("Escribe tu nuevo NIF");
-                NIF = sc.nextInt();
-                sc.nextLine();
-                Cuentas.get(NumCuenta).setNif(NIF);
-                break;
+                case 3:
+                    System.out.println("Escribe tu nueva direccion Direccion");
+                    Direccion = sc.nextLine();
+                    Cuentas.get(NumCuenta).setDireccion(Direccion);
+                    break;
 
-            case 5:
-                System.out.println("Escribe tu nuevo numero de Telefono");
-                Telefono = sc.nextInt();
-                sc.nextLine();
-                Cuentas.get(NumCuenta).setTelefono(Telefono);
-                break;
+                case 4:
+                    System.out.println("Escribe tu nuevo NIF");
+                    NIF = sc.nextInt();
+                    sc.nextLine();
+                    Cuentas.get(NumCuenta).setNif(NIF);
+                    break;
 
-            case 6:
-                System.out.println("Escribe tu Edad Actual");
-                Edad = sc.nextInt();
-                sc.nextLine();
-                Cuentas.get(NumCuenta).setEdad(Edad);
-                break;
+                case 5:
+                    System.out.println("Escribe tu nuevo numero de Telefono");
+                    Telefono = sc.nextInt();
+                    sc.nextLine();
+                    Cuentas.get(NumCuenta).setTelefono(Telefono);
+                    break;
 
+                case 6:
+                    System.out.println("Escribe tu Edad Actual");
+                    Edad = sc.nextInt();
+                    sc.nextLine();
+                    Cuentas.get(NumCuenta).setEdad(Edad);
+                    break;
+
+            }
+        } else {
+            System.out.println("No eres tu");
         }
-        
+
     }
 
     public static int MenuModificar() {
@@ -211,22 +218,34 @@ public class Proyecto_final_Banca_Entornos_Ivan {
         sc.nextLine();
         return opcion;
     }
-    
-    public static void InformacionCuenta(){
+
+    public static void InformacionCuenta() {
         int NumCuenta;
         int NIF;
         MostrarCuentas();
         System.out.println("Elige el numero de tu cuenta");
-        NumCuenta=sc.nextInt();
+        NumCuenta = sc.nextInt();
         sc.nextLine();
         System.out.println("Escribe tu NIF para ver si eres tu");
-        NIF=sc.nextInt();
+        NIF = sc.nextInt();
         sc.nextLine();
-        if (NIF==Cuentas.get(NumCuenta).getNif()) {
+        if (NIF == Cuentas.get(NumCuenta).getNif()) {
             System.out.println(Cuentas.get(NumCuenta).toString());
-        }else{
+        } else {
             System.out.println("No eres tu realmente");
         }
+    }
+
+    public static void SaldoMedio() {
+        int NumCuenta;
+        int NIF;
+        MostrarCuentas();
+        System.out.println("Elige el numero de tu cuenta");
+        NumCuenta = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Escribe tu NIF para ver si eres tu");
+        NIF = sc.nextInt();
+        sc.nextLine();
     }
 
 }
