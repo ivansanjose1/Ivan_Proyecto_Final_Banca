@@ -19,63 +19,90 @@ public class Proyecto_final_Banca_Entornos_Ivan {
 
     public static void main(String[] args) {
 
-        int cantidad;
-        int NumCuenta;
-        int opcion = menu();
-
         //Cuentas de pruebas
         Cuentas.add(new Datos_Cliente("Juan", "Perez", "Casa", 1, 689751300, 18, 2, 0));
         Cuentas.add(new Datos_Cliente("Juan", "Perez", "Plaza", 1, 689854821, 18, 2, 10));
-        switch (opcion) {
+        int Cantidad;
+        int NumCuenta;
+        System.out.println("¿Las operaciones que vas a realizar son Fisicas o Digitales?");
 
-            case 0:
-                System.out.println("Cerrando");
-                break;
-
+        int Operaciones = EleccionOperaciones();
+        switch (Operaciones) {
             case 1:
-                MostrarCuentas();
-                System.out.println("Elige el numero de la cuenta que vayas a usar");
-                NumCuenta = sc.nextInt();
-                sc.nextLine();
-                System.out.println("Que cantidad vas a ingresar");
-                cantidad = sc.nextInt();
-                sc.nextLine();
+                int opcion = Menu();
 
-                Cuentas.get(NumCuenta).ingresar(cantidad);
+                switch (opcion) {
+
+                    case 0:
+                        System.out.println("Cerrando");
+                        break;
+
+                    case 1:
+                        MostrarCuentas();
+                        System.out.println("Elige el numero de la cuenta que vayas a usar");
+                        NumCuenta = sc.nextInt();
+                        sc.nextLine();
+                        System.out.println("Que cantidad vas a ingresar");
+                        Cantidad = sc.nextInt();
+                        sc.nextLine();
+
+                        Cuentas.get(NumCuenta).ingresar(Cantidad);
+                        break;
+
+                    case 2:
+                        MostrarCuentas();
+                        System.out.println("Elige el numero de la cuenta que vayas a usar");
+                        NumCuenta = sc.nextInt();
+                        sc.nextLine();
+                        System.out.println("Que cantidad vas a retirar");
+                        Cantidad = sc.nextInt();
+                        sc.nextLine();
+                        Cuentas.get(NumCuenta).retirar(Cantidad);
+                        break;
+
+                    case 3:
+                        System.out.println("Siga los pasos");
+                        CrearPerfil();
+                        break;
+                    case 4:
+                        ModificarlaCuenta();
+                        break;
+                    case 5:
+                        InformacionCuenta();
+                        break;
+
+                    default:
+                        System.out.println("No esta disponible actualmente esa opcion");
+                        break;
+
+                }
                 break;
-
             case 2:
-                MostrarCuentas();
-                System.out.println("Elige el numero de la cuenta que vayas a usar");
-                NumCuenta = sc.nextInt();
-                sc.nextLine();
-                System.out.println("Que cantidad vas a retirar");
-                cantidad = sc.nextInt();
-                sc.nextLine();
-                Cuentas.get(NumCuenta).retirar(cantidad);
+                
                 break;
-
-            case 3:
-                System.out.println("Siga los pasos");
-                CrearPerfil();
-                break;
-            case 4:
-                ModificarlaCuenta();
-                break;
-            case 5:
-                InformacionCuenta();
-                break;
-
-            default:
-                System.out.println("No esta disponible actualmente esa opcion");
-                break;
-
         }
 
     }
 
-    public static int menu() {
+    public static int EleccionOperaciones() {
         int opcion;
+        System.out.println("*********************************");
+        System.out.println("*           Menu                *");
+        System.out.println("*********************************");
+        System.out.println("*   1-Fisica                    *");
+        System.out.println("*********************************");
+        System.out.println("*   2-Digital                   *");
+        System.out.println("*********************************");
+        System.out.println("*   0-Salir                     *");
+        System.out.println("*********************************");
+        System.out.println("Elige una opcion");
+        opcion = sc.nextInt();
+        sc.nextLine();
+        return opcion;
+    }
+
+    public static int Menu() {
+        int Opcion;
         System.out.println("*********************************");
         System.out.println("*           Menu                *");
         System.out.println("*********************************");
@@ -92,8 +119,9 @@ public class Proyecto_final_Banca_Entornos_Ivan {
         System.out.println("*   0-Salir                     *");
         System.out.println("*********************************");
         System.out.println("Elige una opcion");
-        opcion = sc.nextInt();
-        return opcion;
+        Opcion = sc.nextInt();
+        sc.nextLine();
+        return Opcion;
     }
 
     public static void CrearPerfil() {
