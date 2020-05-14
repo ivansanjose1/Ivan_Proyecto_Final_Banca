@@ -78,7 +78,23 @@ public class Proyecto_final_Banca_Entornos_Ivan {
                 }
                 break;
             case 2:
-                
+                int Opcion = MenuInternet();
+                switch (Opcion) {
+                    case 0:
+                        System.out.println("Saliendo");
+                        break;
+                    case 1:
+
+                        break;
+
+                    case 2:
+
+                        break;
+
+                    default:
+                     System.out.println("No esta disponible actualmente esa opcion");
+                        break;
+                }
                 break;
         }
 
@@ -123,8 +139,25 @@ public class Proyecto_final_Banca_Entornos_Ivan {
         sc.nextLine();
         return Opcion;
     }
-    
-     public static int MenuModificar() {
+
+    public static int MenuInternet() {
+        int Opcion;
+        System.out.println("*********************************");
+        System.out.println("*           Menu                *");
+        System.out.println("*********************************");
+        System.out.println("*   1-Realizar Pago             *");
+        System.out.println("*********************************");
+        System.out.println("*   2-Información de tu cuenta  *");
+        System.out.println("*********************************");
+        System.out.println("*   0-Salir                     *");
+        System.out.println("*********************************");
+        System.out.println("Elige una opcion");
+        Opcion = sc.nextInt();
+        sc.nextLine();
+        return Opcion;
+    }
+
+    public static int MenuModificar() {
         int opcion;
         System.out.println("*********************************");
         System.out.println("*       Menu Modificar          *");
@@ -246,8 +279,6 @@ public class Proyecto_final_Banca_Entornos_Ivan {
         }
 
     }
-
-   
 
     public static void InformacionCuenta() {
         int NumCuenta;
