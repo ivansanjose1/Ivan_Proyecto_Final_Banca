@@ -71,13 +71,19 @@ public class Datos_Cliente {
                 System.out.println("Error no puedes le delvolvemos a la cuenta la cantidad que has intentado sacar");
                 this.saldo += cantidad;
             } else {
-                System.out.println("Correcto");
-                this.saldo -= cantidad;
+                if (cantidad<=500) {
+                  System.out.println("Correcto");
+                   this.saldo -= cantidad;  
+                }else{
+                    System.out.println("No puedes hacer pagos de esa cantidad");
+                }
             }
         } else {
             System.out.println("No eres tu");
         }
     }
+
+    
 
     public String getNombre() {
         return nombre;

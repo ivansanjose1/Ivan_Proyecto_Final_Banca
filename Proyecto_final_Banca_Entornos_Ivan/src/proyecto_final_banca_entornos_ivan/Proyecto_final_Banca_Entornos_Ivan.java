@@ -84,7 +84,14 @@ public class Proyecto_final_Banca_Entornos_Ivan {
                         System.out.println("Saliendo");
                         break;
                     case 1:
-
+                        MostrarCuentas();
+                        System.out.println("Elige el numero de la cuenta que vayas a usar");
+                        NumCuenta = sc.nextInt();
+                        sc.nextLine();
+                        System.out.println("Escribe la cantidad del pago");
+                        Cantidad = sc.nextInt();
+                        sc.nextLine();
+                        Cuentas.get(NumCuenta).retirar(Cantidad);
                         break;
 
                     case 2:
@@ -92,7 +99,7 @@ public class Proyecto_final_Banca_Entornos_Ivan {
                         break;
 
                     default:
-                     System.out.println("No esta disponible actualmente esa opcion");
+                        System.out.println("No esta disponible actualmente esa opcion");
                         break;
                 }
                 break;
