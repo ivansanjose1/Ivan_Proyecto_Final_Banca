@@ -115,7 +115,7 @@ public class Proyecto_final_Banca_Entornos_Ivan {
         System.out.println("*********************************");
         System.out.println("*           Menu                *");
         System.out.println("*********************************");
-        System.out.println("*   1-Fisica                    *");
+        System.out.println("*   1-Fisico                    *");
         System.out.println("*********************************");
         System.out.println("*   2-Digital                   *");
         System.out.println("*********************************");
@@ -207,7 +207,7 @@ public class Proyecto_final_Banca_Entornos_Ivan {
         System.out.println("Cual es su edad");
         int edad = sc.nextInt();
         sc.nextLine();
-        System.out.println("Cantidad de cuentas que tengas");
+        System.out.println("Cantidad de cuentas que tengas sino tienes ninguna pon 1");
         int cantidad_cuentas = sc.nextInt();
         sc.nextLine();
 
